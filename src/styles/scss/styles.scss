@@ -1,9 +1,68 @@
 @import './body.scss';
 
-body {
-    background-color: #f4f4f4;
-}
-
 #root {
     height: 100vh;
 }
+
+.app__layout {
+    height: 100%;
+}
+
+
+/*##################################
+########    HEADER  
+##################################*/
+.header {
+    .brand-logo {
+        width: 65px;
+        height: 65px;
+    }
+}
+/*######  /.END HEADER 
+####################################*/
+
+
+/*##################################
+########    CARD-GRID  
+##################################*/
+.card-grid {
+    position: relative;
+    height: 100%;
+    margin-top: -64px;
+    padding-top: 74px; 
+    &__loader {
+        display: block;
+        &:after {
+            content: 'Loading...';
+            display: block;            
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            max-height: 20px;
+            max-width: 0;
+        }
+    }
+}
+/*######  /.END CARD-GRID 
+####################################*/
+
+
+/*##################################
+########    CARD  
+##################################*/
+.card {
+    display: flex;
+    min-height: 220px;
+    .card-content {
+     display: flex;
+     flex-flow: column wrap;
+    }
+    &-description {
+        margin-top: auto;
+    }
+}
+/*######  /.END CARD 
+####################################*/

@@ -1,19 +1,25 @@
 import React from 'react';
-import Card from './Card';
 import {
     Route,
     Link
 } from 'react-router-dom';
 
+import Card from './Card';
+import Header from './Header';
+import BooksPage from './BooksPage';
+import BookPage from './BookPage';
+import AuthorsPage from './AuthorsPage';
+import AuthorPage from './AuthorPage';
+
 const Layout = () => (
     <div className="app__layout">
-        <div className="container">
-            <span>Logo</span>
-            <Link to="/card">Card</Link>            
+        <div className="header">
+            <Header />
         </div>
-        <div className="container">
-            <Route path="/card"  component={Card} />
-        </div>
+        <Route path="/books"  component={BooksPage} />                        
+        <Route path="/book/id=:id"  component={BookPage} />        
+        <Route path="/authors"  component={AuthorsPage} />                        
+        <Route path="/author/id=:id"  component={AuthorPage} />                        
     </div>
 );
 

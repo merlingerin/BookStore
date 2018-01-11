@@ -4,10 +4,66 @@
   box-sizing: border-box; }
 
 body {
-  font-size: 16px; }
-
-body {
+  font-size: 16px;
   background-color: #f4f4f4; }
+
+a {
+  display: inline-block; }
+
+img {
+  max-width: 100%;
+  height: auto; }
 
 #root {
   height: 100vh; }
+
+.app__layout {
+  height: 100%; }
+
+/*##################################
+########    HEADER  
+##################################*/
+.header .brand-logo {
+  width: 65px;
+  height: 65px; }
+
+/*######  /.END HEADER 
+####################################*/
+/*##################################
+########    CARD-GRID  
+##################################*/
+.card-grid {
+  position: relative;
+  height: 100%;
+  margin-top: -64px;
+  padding-top: 74px; }
+  .card-grid__loader {
+    display: block; }
+    .card-grid__loader:after {
+      content: 'Loading...';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      max-height: 20px;
+      max-width: 0; }
+
+/*######  /.END CARD-GRID 
+####################################*/
+/*##################################
+########    CARD  
+##################################*/
+.card {
+  display: flex;
+  min-height: 220px; }
+  .card .card-content {
+    display: flex;
+    flex-flow: column wrap; }
+  .card-description {
+    margin-top: auto; }
+
+/*######  /.END CARD 
+####################################*/
