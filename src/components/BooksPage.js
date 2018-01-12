@@ -10,8 +10,7 @@ import Preloader from './Preloader';
 class BooksPage extends Component {
 
     componentDidMount() {
-        this.props.getBooks();
-        
+        this.props.getBooks(); 
     }
 
     render() {

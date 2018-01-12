@@ -16,7 +16,8 @@ class AuthorsPage extends Component {
     render() {
         let { authors } = this.props.authors;
         let renderLinks = authors.map((author) => (
-            <Link 
+            <Link
+                key={author.id} 
                 to={`/author/id=${author.id}`} 
                 className="authors-list__author-link collection-item">
                     Name: {author.name}
@@ -30,9 +31,10 @@ class AuthorsPage extends Component {
             <div className="authors-page page-container">
                 <div className="container">
                     <div className="row">
-                        <div className="authors-page__authors-list collection">
+                        <ul className="authors-page__authors-list collection with-header">
+                            <li className="collection-header"><h5>Books:</h5></li>
                             { authors.length > 0 ? renderLinks : <Preloader />}
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </div>

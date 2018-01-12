@@ -8,18 +8,18 @@ import {
 } from '../api/api';
 import { dispatch } from 'redux';
 
-export const getBook = () => {
+export const getBookInfo = (id) => {
     return (dispatch) => {
         dispatch({
             type: GET_BOOK_REQUEST,
             payload: null
         });
 
-        fetch(URL_BOOK)
+        fetch(`${URL_BOOK(id)}`)
         .then(data => data.json())
-        .then((books) => dispatch({
+        .then((bookInfo) => dispatch({
             type: GET_BOOK_SUCCESS,
-            payload: books
+            payload: bookInfo
         }))
         .catch((error) => dispatch({
             type: GET_BOOK_ERROR,

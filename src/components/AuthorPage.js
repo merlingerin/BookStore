@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getAuthor } from '../actions/getAuthor';
+// import { getAuthor } from '../actions/getAuthor';
+import { getAuthorInfo } from '../actions/getAuthorInfo';
 import { bindActionCreators } from 'redux'
 
 import Card from './Card';
@@ -11,28 +12,52 @@ class AuthorPage extends Component {
 
     componentDidMount() {
         const { match: { params } } = this.props;
-        console.log('PARAMS::: ', +params.id);
-        this.props.getAuthor(+params.id);
+        this.props.getAuthorInfo(+params.id);
     }
 
     render() {
         console.log('AUTHOR', this.props);
-        // let { author } = this.props.authors;
-        // let renderLinks = authors.map((author) => (
-        //     <Link 
-        //         to={`/author/id=${author.id}`} 
-        //         className="authors-list__author-link collection-item">
-        //             Name: {author.name}
-        //     </Link>            
-        // ));
-        // { authors.length > 0 ? renderLinks : <Preloader />}
+        let { author } = this.props.authorInfo;
+        let { books } = this.props.authorInfo;
+        let { fetching } = this.props.authorInfo;
+        
+        const renderBooks = () => {
+            if( books.length > 0 ) {
+                return (
+                        books.map((book) => (
+                            <Link
+                                key={book.id} 
+                                to={`/book/id=${book.id}`} 
+                                className="books-list__book-link collection-item">
+                                    Title: {book.title}
+                                    <div className="books-list__book-year teal accent-4">
+                                        <cite className="book-year__inner text-white">Year: {book.year}</cite>                        
+                                    </div>
+                            </Link>  
+                        ))
+                    );
+            } else {
+                return (<span className="no-data">No books</span>)
+            }
+        }
+
+        const renderInfo = (
+            <div className="author-page__author-info">
+                <h3 className="author-info__author-name">
+                    Author: {author.name}
+                </h3>
+                <ul className="authors-page__authors-list collection with-header">
+                    <li className="collection-header"><h5>Books:</h5></li>
+                    { renderBooks() }
+                </ul>
+            </div>
+        )
 
         return (
-            <div className="authors-page page-container">
+            <div className="author-page page-container">
                 <div className="container">
                     <div className="row">
-                        <div className="authors-page__authors-list collection">
-                        </div>
+                        { !fetching ? renderInfo : <Preloader /> }
                     </div>
                 </div>
             </div>
@@ -42,13 +67,13 @@ class AuthorPage extends Component {
 
 function mapStateToProps (state) {
     return {
-      author: state.author
+      authorInfo: state.authorInfo
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-      getAuthor: bindActionCreators(getAuthor, dispatch)
+    getAuthorInfo: bindActionCreators(getAuthorInfo, dispatch)
     }
 }
 

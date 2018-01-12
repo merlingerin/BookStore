@@ -30,7 +30,7 @@ export default class Card extends Component {
                     <div className="card-content white-text">
                         <Link to={`/book/id=${book.id}`}><span className="card-title deep-orange-text">{ book.title }</span></Link>
                         <div className="card-description">
-                            <p className="card-author"><Link to={`/author/id=${book.id}`}><span className="card-author__link">{ book.author.name }</span></Link></p>
+                            <p className="card-author"><Link to={`/author/id=${book.author ? book.author.id : false}`}><span className="card-author__link">{ book.author.name }</span></Link></p>
                             <p>
                                 <cite>
                                     Year: { book.year }
