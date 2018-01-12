@@ -10,12 +10,14 @@ import BooksPage from './BooksPage';
 import BookPage from './BookPage';
 import AuthorsPage from './AuthorsPage';
 import AuthorPage from './AuthorPage';
+import MainPage from './MainPage';
 
 const Layout = () => (
     <div className="app__layout">
         <div className="header">
             <Header />
         </div>
+        <Route exact path="/"  component={MainPage} />                                
         <Route path="/books"  component={BooksPage} />                        
         <Route path="/book/id=:id"  component={BookPage} />        
         <Route path="/authors"  component={AuthorsPage} />                        
