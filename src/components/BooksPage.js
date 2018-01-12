@@ -5,11 +5,13 @@ import { getBooks } from '../actions/index';
 import { bindActionCreators } from 'redux'
 
 import Card from './Card';
+import Preloader from './Preloader';
 
 class BooksPage extends Component {
 
     componentDidMount() {
         this.props.getBooks();
+        
     }
 
     render() {
@@ -20,10 +22,10 @@ class BooksPage extends Component {
         ));
 
         return (
-            <div className="books-grid">
+            <div className="books-page page-container">
                 <div className="container">
                     <div className="row">
-                        { books.length > 0 ? renderCard : <span className="card-grid__loader" /> }
+                        { books.length > 0 ? renderCard : <Preloader />}
                     </div>
                 </div>
             </div>
