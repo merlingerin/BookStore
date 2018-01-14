@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { getBooks } from '../actions/index';
 import { bindActionCreators } from 'redux';
 
-import Card from './Card';
-import Preloader from './Preloader';
+import Card from '../components/Card';
+import Preloader from '../components/Preloader';
 
 class BooksPage extends Component {
 

@@ -1,28 +1,24 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getBookInfo } from '../actions/getBookInfo';
 import { bindActionCreators } from 'redux'
 
-import Preloader from './Preloader';
+import Preloader from '../components/Preloader';
 
-class AuthorPage extends Component {
+class BookPage extends Component {
 
     componentDidMount() {
+        //GET BOOK's INFO FROM API
         const { match: { params } } = this.props;
         this.props.getBookInfo(+params.id);
     }
 
     render() {
-        console.log(this.props);
         let { info }  = this.props.bookInfo;
         let { fetching }  = this.props.bookInfo;
         let { info: { author } }  = this.props.bookInfo;
-
-        console.log('info.author.id', author);
-        if(author) {
-            console.log('fetching', author);
-        }
          
         let renderBookInfo = () => (
             <div className="book-page__book-info">
@@ -62,6 +58,10 @@ class AuthorPage extends Component {
     }
 }
 
+BookPage.propTypes = {
+    bookInfo: PropTypes.shape({}).isRequired
+}
+
 function mapStateToProps (state) {
     return {
       bookInfo: state.bookInfo
@@ -74,4 +74,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthorPage);
+export default connect(mapStateToProps, mapDispatchToProps)(BookPage);

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getAuthorInfo } from '../actions/getAuthorInfo';
 import { bindActionCreators } from 'redux'
 
-import Preloader from './Preloader';
+import Preloader from '../components/Preloader';
 
 class AuthorPage extends Component {
 
@@ -20,9 +20,7 @@ class AuthorPage extends Component {
         let { author } = this.props.authorInfo;
         let { books } = this.props.authorInfo;
         let { fetching } = this.props.authorInfo;
-            console.log('====================================');
-            console.log(this.props.authorInfo);
-            console.log('====================================');
+        
         const renderBooks = () => {
             if( books.length > 0 ) {
                 return (

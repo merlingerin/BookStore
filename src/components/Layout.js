@@ -4,10 +4,10 @@ import {
 } from 'react-router-dom';
 
 import Header from './Header';
-import BooksPage from './BooksPage';
-import BookPage from './BookPage';
-import AuthorsPage from './AuthorsPage';
-import AuthorPage from './AuthorPage';
+import BooksPage from '../containers/BooksPage';
+import BookPage from '../containers/BookPage';
+import AuthorsPage from '../containers/AuthorsPage';
+import AuthorPage from '../containers/AuthorPage';
 import IndexPage from './IndexPage';
 
 const Layout = () => (

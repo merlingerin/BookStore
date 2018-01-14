@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getAuthors } from '../actions/index';
 import { bindActionCreators } from 'redux'
 
-import Preloader from './Preloader';
+import Preloader from '../components/Preloader';
 
 class AuthorsPage extends Component {
 
