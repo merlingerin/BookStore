@@ -1,23 +1,21 @@
 import React from 'react';
 import {
-    Route,
-    Link
+    Route
 } from 'react-router-dom';
 
-import Card from './Card';
 import Header from './Header';
 import BooksPage from './BooksPage';
 import BookPage from './BookPage';
 import AuthorsPage from './AuthorsPage';
 import AuthorPage from './AuthorPage';
-import MainPage from './MainPage';
+import IndexPage from './IndexPage';
 
 const Layout = () => (
     <div className="app__layout">
         <div className="header">
             <Header />
         </div>
-        <Route exact path="/"  component={MainPage} />                                
+        <Route exact path="/"  component={IndexPage} />                                
         <Route path="/books"  component={BooksPage} />                        
         <Route path="/book/id=:id"  component={BookPage} />        
         <Route path="/authors"  component={AuthorsPage} />                        

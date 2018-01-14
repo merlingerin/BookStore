@@ -219,6 +219,12 @@ app.route('/api/authors/:author_id/books')
 
 // BOOKS API
 
+app.route('/api/create_books')
+    .post(function (req, res) {
+        res.send({"body": req.body});
+        console.log("RES", req.body);
+    });
+
 app.route('/api/books')
     .get(function (req, res) {
         Book.findAll({

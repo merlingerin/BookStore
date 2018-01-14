@@ -10,12 +10,12 @@ import { dispatch } from 'redux';
 
 export const getAuthorsBooks = (id) => {
     return async(dispatch) => {
-        await dispatch({
+        dispatch({
             type: GET_AUTHORS_BOOKS_REQUEST,
             payload: null
         });
 
-        await fetch(`${URL_AUTHORS_BOOKS(id)}`)
+        fetch(`${URL_AUTHORS_BOOKS(id)}`)
         .then(data => data.json())
         .then((books) => dispatch({
             type: GET_AUTHORS_BOOKS_SUCCESS,

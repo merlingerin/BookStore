@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getAuthors } from '../actions/index';
 import { bindActionCreators } from 'redux'
 
-import Card from './Card';
 import Preloader from './Preloader';
 
 class AuthorsPage extends Component {
 
     componentDidMount() {
+        //GET AUTHORS FROM API
         this.props.getAuthors();
     }
 
@@ -40,6 +41,14 @@ class AuthorsPage extends Component {
             </div>
         );
     }
+} 
+
+AuthorsPage.propTypes = {
+    authors: PropTypes.shape({
+        authors: PropTypes.array,
+        fetching: PropTypes.boolean,
+        error: PropTypes.any
+    }).isRequired
 }
 
 function mapStateToProps (state) {

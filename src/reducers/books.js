@@ -1,13 +1,7 @@
 import {
     GET_BOOKS_REQUEST,
     GET_BOOKS_SUCCESS,
-    GET_BOOKS_ERROR,
-    GET_BOOK_REQUEST,
-    GET_BOOK_SUCCESS,
-    GET_AUTHORS_REQUEST,
-    GET_AUTHORS_SUCCESS,
-    GET_AUTHOR_REQUEST,
-    GET_AUTHOR_SUCCESS
+    GET_BOOKS_ERROR
 } from '../constants/index';
 
 const initialState = {
@@ -19,7 +13,6 @@ const initialState = {
 const books = (state = initialState || {}, action) => {
     switch(action.type) {
         case GET_BOOKS_REQUEST:
-            console.log('Ready');
             return { ...state, fetching: true }
 
         case GET_BOOKS_SUCCESS:

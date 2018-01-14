@@ -6,7 +6,6 @@ import {
 import {
     URL_BOOK,
 } from '../api/api';
-import { dispatch } from 'redux';
 
 export const getBookInfo = (id) => {
     return (dispatch) => {

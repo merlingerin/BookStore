@@ -1,7 +1,4 @@
 import {
-    GET_AUTHOR_REQUEST,
-    GET_AUTHOR_SUCCESS,
-    GET_AUTHOR_ERROR,
     GET_AUTHOR_INFO_REQUEST,
     GET_AUTHOR_INFO_SUCCESS,
     GET_AUTHOR_INFO_ERROR    
@@ -10,7 +7,6 @@ import {
     URL_AUTHOR,
     URL_AUTHORS_BOOKS
 } from '../api/api';
-import { dispatch } from 'redux';
 
 export const getAuthorInfo = (id) => {
     return (dispatch) => {

@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import { getAuthor } from '../actions/getAuthor';
 import { getAuthorInfo } from '../actions/getAuthorInfo';
 import { bindActionCreators } from 'redux'
 
-import Card from './Card';
 import Preloader from './Preloader';
 
 class AuthorPage extends Component {
 
     componentDidMount() {
         const { match: { params } } = this.props;
+
+        //GET AUTHOR INFO FROM API
         this.props.getAuthorInfo(+params.id);
     }
 
     render() {
-        console.log('AUTHOR', this.props);
         let { author } = this.props.authorInfo;
         let { books } = this.props.authorInfo;
         let { fetching } = this.props.authorInfo;
-        
+            console.log('====================================');
+            console.log(this.props.authorInfo);
+            console.log('====================================');
         const renderBooks = () => {
             if( books.length > 0 ) {
                 return (
@@ -63,6 +65,15 @@ class AuthorPage extends Component {
             </div>
         );
     }
+}
+
+AuthorPage.protoTypes = {
+    authorInfo: PropTypes.shape({
+        author: PropTypes.object,
+        books: PropTypes.array,
+        error: PropTypes.any,
+        fetching: PropTypes.boolean
+    }).isRequired
 }
 
 function mapStateToProps (state) {

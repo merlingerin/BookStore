@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getBooks } from '../actions/index';
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux';
 
 import Card from './Card';
 import Preloader from './Preloader';
@@ -10,11 +10,11 @@ import Preloader from './Preloader';
 class BooksPage extends Component {
 
     componentDidMount() {
+        //GET BOOKS FROM API
         this.props.getBooks(); 
     }
 
     render() {
-        console.log('data:::', this.props.books.books);
         let { books } = this.props.books;
         let renderCard = books.map((item) => (
             <Card key={item.id} {...item} />
@@ -31,6 +31,14 @@ class BooksPage extends Component {
         );
     }
 }
+
+BooksPage.propTypes = {
+    books: PropTypes.shape({
+        books: PropTypes.array,
+        fetching: PropTypes.boolean,
+        error: PropTypes.any
+    }).isRequired
+} 
 
 function mapStateToProps (state) {
     return {

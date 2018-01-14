@@ -4,24 +4,7 @@ import {
 } from 'react-router-dom';
 
 export default class Card extends Component {
-    // state = {
-    //     text: 'Hello from card'
-    // }
-    // componentDidMount() {
-    //     let body = document.getElementsByTagName('body')[0];
-    //     body.addEventListener('click', (event) => {
-    //         if(!!event.target.dataset.element) {
-    //             this.setState({
-    //                 text: 'Hello from drawer'
-    //             })
-    //         }
-    //         else {
-    //             this.setState({
-    //                 text: 'Hello from card'
-    //             })
-    //         }
-    //     })
-    // }
+
     render() {
         let book = this.props;
         return (

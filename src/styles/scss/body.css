@@ -13,3 +13,6 @@ a {
 img {
   max-width: 100%;
   height: auto; }
+
+select {
+  display: block; }
