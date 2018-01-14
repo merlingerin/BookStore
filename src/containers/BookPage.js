@@ -59,7 +59,11 @@ class BookPage extends Component {
 }
 
 BookPage.propTypes = {
-    bookInfo: PropTypes.shape({}).isRequired
+    bookInfo: PropTypes.shape({
+        info: PropTypes.object,
+        fetching: PropTypes.boolean,
+        error: PropTypes.any
+    }).isRequired
 }
 
 function mapStateToProps (state) {
